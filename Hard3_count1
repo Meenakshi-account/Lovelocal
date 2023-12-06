@@ -1,0 +1,46 @@
+import java.util.Scanner;
+public class DigitCount 
+{
+  public static int digitcount(int a) {
+    if (a <= 0) 
+    {
+      return 0;
+    }
+    int d = 1,ans = 0,c = 0,back,present;
+    while (a > 0) 
+    {
+      present= a % 10;
+      back = a / 10;
+      if (present == 0) 
+      {
+        ans = ans+(back * d);
+      } 
+      else if (present== 1) 
+      {
+        ans = ans+(back * d + c + 1);
+      }
+      else 
+      {
+        ans = ans+((back + 1) * d);
+      }
+      c= c+(present * d);
+      d = d* 10;
+      a = a/10;
+    }
+    return ans;
+  }
+  public static void main(String[] args) 
+  {
+    Scanner in = new Scanner(System.in);
+    System.out.print("n=");
+    int a = in.nextInt();
+    if (a < 0) 
+    {
+      System.out.println("Invalid input");
+    } 
+    else 
+    {
+      System.out.println(digitcount(a));
+    }
+  }
+}
