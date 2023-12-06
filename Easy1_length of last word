@@ -1,1 +1,52 @@
-import 
+import java.util.Scanner;
+public class LengthLastWord
+{
+    public static int length(String s1)
+    {
+        s1 = s1.trim();
+        if (s1.isEmpty())
+        {
+            return 0;
+        }
+        int i = s1.lastIndexOf(' ');
+        if (i == -1)
+        {
+            return s1.length();
+        } else
+        {
+            return s1.length() - i - 1;
+        }
+    }
+    public static String lastword(String s1) 
+    {
+        s1 = s1.trim();
+        if (s1.isEmpty()) 
+        {
+            return "";
+        }
+        int i = s1.lastIndexOf(' ');
+        if (i == -1) 
+        {
+            return s1;
+        } else 
+        {
+            return s1.substring(i + 1);
+        }
+    }
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("s=");
+        String s = in.nextLine();
+        int lengthlastword = length(s);
+        String lastword = lastword(s);
+        if (lengthlastword > 0)
+        {
+            System.out.println("The last word is \""+ lastword + "\" with length " + lengthlastword+".");
+        } 
+        else 
+        {
+            System.out.println("Sentence not present");
+        }
+    }
+}
