@@ -3,34 +3,35 @@ public class LengthLastWord
 {
     public static int length(String s1)
     {
-        s1 = s1.trim();
-        if (s1.isEmpty())
+        s1 = s1.trim();//remove whitespaces
+        if (s1.isEmpty())//checks if string is empty after removing whitespaces
         {
             return 0;
         }
-        int i = s1.lastIndexOf(' ');
-        if (i == -1)
+        int i = s1.lastIndexOf(' ');//last occurence of space character
+        if (i == -1)//no space charecter which means only 1 word present
         {
             return s1.length();
-        } else
+        } 
+        else
         {
-            return s1.length() - i - 1;
+            return s1.length() - i - 1;//length of last word
         }
     }
     public static String lastword(String s1) 
     {
-        s1 = s1.trim();
-        if (s1.isEmpty()) 
+        s1 = s1.trim();//remove whitespaces
+        if (s1.isEmpty())//checks if string is empty after removing whitespaces
         {
-            return "";
+            return "";//empty string
         }
-        int i = s1.lastIndexOf(' ');
-        if (i == -1) 
+        int i = s1.lastIndexOf(' ');//last occurence of space character
+        if (i == -1)//no space charecter which means only 1 word present
         {
             return s1;
         } else 
         {
-            return s1.substring(i + 1);
+            return s1.substring(i + 1);//return the last word by taking last space
         }
     }
     public static void main(String[] args)
