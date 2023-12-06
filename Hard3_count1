@@ -6,26 +6,26 @@ public class DigitCount
     {
       return 0;
     }
-    int d = 1,ans = 0,c = 0,back,present;
+    int d = 1,ans = 0,c = 0,back,present;//digit place value, ans total count of 1,count of digit 1 in current place
     while (a > 0) 
     {
-      present= a % 10;
-      back = a / 10;
+      present= a % 10;//present digit
+      back = a / 10;//remaining digit
       if (present == 0) 
       {
-        ans = ans+(back * d);
+        ans = ans+(back * d);//adds previous digits to the total count
       } 
       else if (present== 1) 
       {
-        ans = ans+(back * d + c + 1);
+        ans = ans+(back * d + c + 1);//adds previous digit, c and 1 for current digit to total count,
       }
       else 
       {
-        ans = ans+((back + 1) * d);
+        ans = ans+((back + 1) * d);//adds previous digit, 1 for current digit and 1 to compensate to uocomin in increment to total count
       }
-      c= c+(present * d);
-      d = d* 10;
-      a = a/10;
+      c= c+(present * d);//Updates running count of digit 1 in the current digit place
+      d = d* 10;//Updates the digit place value
+      a = a/10;//Shifts the input value after processing the next digit
     }
     return ans;
   }
