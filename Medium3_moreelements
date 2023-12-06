@@ -1,0 +1,38 @@
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Max
+{
+    public static ArrayList<Integer> max(int[] n) 
+    {
+        HashMap<Integer, Integer> c = new HashMap<>();
+        ArrayList<Integer> answer = new ArrayList<>();
+        int last = (int) Math.floor(n.length / 3.0);
+        for (int m: n) 
+        {
+            c.put(m, c.getOrDefault(m, 0) + 1);
+        }
+        for (int k: c.keySet())
+        {
+            if (c.get(k) > last) 
+            {
+                answer.add(k);
+            }
+        }
+        return answer;
+    }
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("nums=");
+        String s = in.nextLine();
+        String[] a = s.trim().split("\\s+");
+        int[] n = new int[a.length];
+        for (int i = 0; i < a.length; i++)
+        {
+            n[i] = Integer.parseInt(a[i]);
+        }
+        ArrayList<Integer> answer= max(n);
+        System.out.println(answer.toString());
+    }
+}
