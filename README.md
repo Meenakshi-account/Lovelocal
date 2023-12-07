@@ -11,10 +11,10 @@ In this p[rogram it creates a dictionary to store the element and the number of 
 Hard 3
 Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.
 
-
 First in the program it declare up variables digit place value (d), the total count of 1 found (ans), current count of 1 in the current digit position (c), the current digit itself (present), and the remaining digits after removing the current 1 (back). It Iterates through each digit of a non-negative integer, right to left. Then analyzes each digit: adds 1 count to total based on the position and value. Then accounts for zeros and other digits. Updates 1 count for current digit position.
 Finally, returns total count of 1 found.
 
 Easy 3
 Given an integer numRows, return the first numRows of Pascal's triangle.
+
 This program utilizes a nested list structure, where each sublist represents a single row of the triangle. The create function iterates through the given number of rows, building each subsequent row based on the values in the previous row. For each element in the current row, the program adds the corresponding elements from the previous row to determine its sum. At last, the entire triangle is returned and printed line by line for easy understanding.
