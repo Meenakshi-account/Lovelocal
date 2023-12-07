@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+public class Pascals
+{
+    public static List<List<Integer>> create(int r) //create list of lists representing Pasacal,s triangle upto specified number of rows
+    {
+        List<List<Integer>> a = new ArrayList<>();
+        if (r >= 1)//add first row which is 1
+        {
+            a.add(Collections.singletonList(1));
+        }
+        for (int i = 1; i < r; i++) //Generate remaining rows based on previous rows
+        {
+            List<Integer> presentrow = new ArrayList<>();
+            presentrow.add(1);
+            List<Integer> previousRow = a.get(i - 1);//taking previous row for reference
+            for (int j = 1; j < previousRow.size(); j++) //calcutes and add each element in the row
+            {
+                int total = previousRow.get(j - 1) + previousRow.get(j);
+                presentrow.add(total);
+            }
+            presentrow.add(1);//add trailing 1
+            a.add(presentrow);//add the complete present row to triangle
+        }
+        return a;
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("numRows=");
+        int r = in.nextInt();
+
+        List<List<Integer>> a = create(r);
+
+        for (List<Integer> r1 : a) {
+            System.out.println(r1);
+        }
+    }
+}
