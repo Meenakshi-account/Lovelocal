@@ -10,7 +10,7 @@ public class Max
         int last = (int) Math.floor(n.length / 3.0);//calculate n/3
         for (int m: n) 
         {
-            c.put(m, c.getOrDefault(m, 0) + 1);/if element m is found, cis incremented
+            c.put(m, c.getOrDefault(m, 0) + 1);//if element m is found, cis incremented
         }
         for (int k: c.keySet())//element values
         {
